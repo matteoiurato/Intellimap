@@ -6,15 +6,15 @@ namespace Intellimap.Core.Modules.Loading
     /// <summary>
     /// Isolated load context for a single external module assembly. Resolves the module's own
     /// private dependencies from its output folder, but defers resolution of host-owned
-    /// contract assemblies (e.g. Core) to the default context so that types like
-    /// AbstractModule stay identical between host and module instead of becoming two
+    /// contract assemblies to the default context so that common types
+    /// stay identical between host and module instead of becoming two
     /// distinct types with the same name.
     /// </summary>
     internal sealed class ExternalModuleLoadContext : AssemblyLoadContext
     {
         private static readonly HashSet<string> HostOwnedAssemblyNames = new(StringComparer.OrdinalIgnoreCase)
         {
-            "Core"
+            "Intellimap.Core"
         };
 
         private readonly AssemblyDependencyResolver _resolver;
