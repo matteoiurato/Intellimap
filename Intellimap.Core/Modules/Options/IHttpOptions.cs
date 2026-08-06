@@ -11,8 +11,8 @@
         public string? ProxyAddress => String.Empty;
 
         /// <summary>
-        /// The request timeout.
+        /// The request timeout. Null means no timeout.
         /// </summary>
-        public TimeSpan? Timeout => TimeSpan.MaxValue;
+        public TimeSpan? Timeout => null;
     }
 }

@@ -36,6 +36,12 @@ namespace Intellimap.Core.Modules
         where TResult : AbstractModuleResult, new()
     {
         /// <summary>
+        /// The largest delay accepted by <see cref="CancellationTokenSource.CancelAfter(TimeSpan)"/> —
+        /// larger values overflow its internal uint millisecond representation.
+        /// </summary>
+        private static readonly TimeSpan _maxCancelAfterDelay = TimeSpan.FromMilliseconds(uint.MaxValue - 1);
+
+        /// <summary>
         /// Creates a new result instance.
         /// </summary>
         protected TResult CreateResult()
@@ -54,8 +60,8 @@ namespace Intellimap.Core.Modules
             var httpOptions = context.Options as IHttpOptions;
 
             using var cts = CancellationTokenSource.CreateLinkedTokenSource(context.CancellationToken);
-            if (httpOptions?.Timeout != null)
-                cts.CancelAfter(httpOptions.Timeout.Value);
+            if (httpOptions?.Timeout is { } timeout)
+                cts.CancelAfter(timeout > _maxCancelAfterDelay ? _maxCancelAfterDelay : timeout);
 
             return await ExecuteCoreAsync(context, cts.Token);
         }
