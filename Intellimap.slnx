@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Elementi di soluzione/">
+    <File Path=".gitignore" />
+    <File Path="CLAUDE.md" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Intellimap.Core/Intellimap.Core.csproj" />
+</Solution>
