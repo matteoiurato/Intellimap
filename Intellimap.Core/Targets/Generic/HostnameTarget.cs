@@ -3,7 +3,7 @@
     /// <summary>
     /// A target identifying a single hostname or domain (e.g. for DNS lookups).
     /// </summary>
-    public class HostnameTarget : AbstractTarget
+    public record HostnameTarget : AbstractTarget
     {
         /// <summary>
         /// The hostname or domain name.

@@ -5,7 +5,7 @@ namespace Intellimap.Core.Targets.Generic
     /// <summary>
     /// A target identifying a single IP address (e.g. for geolocation or network-owner lookups).
     /// </summary>
-    public class IpAddressTarget : AbstractTarget
+    public record IpAddressTarget : AbstractTarget
     {
         /// <summary>
         /// The parsed IP address.
