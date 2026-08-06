@@ -3,7 +3,7 @@ namespace Intellimap.Core.Targets.Generic
     /// <summary>
     /// A target identifying a single username, platform-agnostic.
     /// </summary>
-    public class UsernameTarget : ITarget
+    public class UsernameTarget : AbstractTarget
     {
         /// <summary>
         /// The username.

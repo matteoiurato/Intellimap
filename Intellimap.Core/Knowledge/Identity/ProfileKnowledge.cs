@@ -3,7 +3,7 @@ namespace Intellimap.Core.Knowledge.Identity
     /// <summary>
     /// Knowledge describing a social/platform profile associated with a username.
     /// </summary>
-    public class ProfileKnowledge : IKnowledge
+    public class ProfileKnowledge : AbstractKnowledge
     {
         public string Username { get; set; } = string.Empty;
 

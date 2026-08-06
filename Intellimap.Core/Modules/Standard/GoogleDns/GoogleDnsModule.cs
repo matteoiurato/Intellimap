@@ -49,13 +49,21 @@ namespace Intellimap.Core.Modules.Standard.GoogleDns
                 throw new ModuleExecutionException(ModuleId, "Service call failed", ex);
             }
 
+            // Status 3 = NXDOMAIN. A domain that exists but simply lacks an A record
+            // returns NOERROR with an empty answer list instead, so this is a reliable
+            // signal that the domain doesn't exist at all, not just that it lacks this record type.
+            var domainExists = responses[0]?.Status != 3;
+
             var dnsKnowledge = new DnsKnowledge
             {
-                Hostname = hostnameTarget.Hostname
+                Hostname = hostnameTarget.Hostname,
+                Found = domainExists
             };
 
             for (var i = 0; i < QueriedTypes.Length; i++)
             {
+                if (responses[i]?.Status != 0) continue;
+
                 var answers = responses[i]?.Answer;
                 if (answers is null) continue;
 
@@ -88,15 +96,12 @@ namespace Intellimap.Core.Modules.Standard.GoogleDns
         }
 
         /// <summary>
-        /// Queries a single DNS record type for a hostname.
+        /// Queries a single DNS record type for a hostname, returning the raw response status and all.
         /// </summary>
         private static async Task<DnsResolveResponse?> QueryAsync(HttpClient client, string hostname, string recordType, CancellationToken token)
         {
             var url = $"https://dns.google/resolve?name={Uri.EscapeDataString(hostname)}&type={recordType}";
-            var response = await client.GetFromJsonAsync<DnsResolveResponse>(url, token);
-
-            // Status 0 = NOERROR
-            return response?.Status == 0 ? response : null;
+            return await client.GetFromJsonAsync<DnsResolveResponse>(url, token);
         }
 
         /// <summary>

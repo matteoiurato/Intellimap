@@ -62,6 +62,7 @@ namespace Intellimap.Core.Modules.Standard.ShodanInternetDb
             var exposureKnowledge = new ExposureKnowledge
             {
                 IpAddress = ipTarget.Address.ToString(),
+                Found = response is not null,
                 Ports = response?.Ports ?? [],
                 Hostnames = response?.Hostnames ?? [],
                 Cpes = response?.Cpes ?? [],

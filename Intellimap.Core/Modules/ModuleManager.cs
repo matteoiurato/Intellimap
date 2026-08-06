@@ -127,7 +127,7 @@ namespace Intellimap.Core.Modules
         /// Gets every module that supports the given target type.
         /// </summary>
         public static IReadOnlyCollection<AbstractModule> GetModulesForTarget<TTarget>()
-            where TTarget : ITarget
+            where TTarget : AbstractTarget
         {
             return GetModulesForTarget(typeof(TTarget));
         }
@@ -147,7 +147,7 @@ namespace Intellimap.Core.Modules
         /// Gets every module that can produce the given knowledge type.
         /// </summary>
         public static IReadOnlyCollection<AbstractModule> GetModulesProducingKnowledge<TKnowledge>()
-            where TKnowledge : IKnowledge
+            where TKnowledge : AbstractKnowledge
         {
             return GetModulesProducingKnowledge(typeof(TKnowledge));
         }

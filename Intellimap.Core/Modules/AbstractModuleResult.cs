@@ -14,6 +14,6 @@ namespace Intellimap.Core.Modules
         /// <summary>
         /// The knowledge produced by the module.
         /// </summary>
-        public abstract IReadOnlyList<IKnowledge> Knowledge { get; }
+        public abstract IReadOnlyList<AbstractKnowledge> Knowledge { get; }
     }
 }

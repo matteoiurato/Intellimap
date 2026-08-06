@@ -3,7 +3,7 @@
     /// <summary>
     /// Knowledge describing DNS records.
     /// </summary>
-    public class DnsKnowledge : IKnowledge
+    public class DnsKnowledge : AbstractKnowledge
     {
         public string Hostname { get; set; } = string.Empty;
 

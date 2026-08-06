@@ -9,6 +9,8 @@
 
         public string Status { get; set; } = string.Empty;
 
+        public string? Message { get; set; }
+
         public string? Country { get; set; }
 
         public string? CountryCode { get; set; }

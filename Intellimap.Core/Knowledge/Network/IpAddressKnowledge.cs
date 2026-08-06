@@ -5,7 +5,7 @@ namespace Intellimap.Core.Knowledge.Network
     /// <summary>
     /// Knowledge describing an IP address.
     /// </summary>
-    public class IpAddressKnowledge : IKnowledge
+    public class IpAddressKnowledge : AbstractKnowledge
     {
         public string IpAddress { get; set; } = string.Empty;
 

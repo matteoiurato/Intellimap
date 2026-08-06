@@ -3,7 +3,7 @@ namespace Intellimap.Core.Knowledge.Network
     /// <summary>
     /// Knowledge describing the internet-facing exposure of an IP address.
     /// </summary>
-    public class ExposureKnowledge : IKnowledge
+    public class ExposureKnowledge : AbstractKnowledge
     {
         public string IpAddress { get; set; } = string.Empty;
 

@@ -3,7 +3,7 @@
     /// <summary>
     /// Knowledge describing a geographic location.
     /// </summary>
-    public class LocationKnowledge : IKnowledge
+    public class LocationKnowledge : AbstractKnowledge
     {
         public string? Country { get; set; }
 

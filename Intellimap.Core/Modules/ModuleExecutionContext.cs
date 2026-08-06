@@ -8,7 +8,7 @@ namespace Intellimap.Core.Modules
     /// </summary>
     public class ModuleExecutionContext
     {
-        public ITarget Target { get; set; } = null!;
+        public AbstractTarget Target { get; set; } = null!;
 
         public IModuleOptions? Options { get; set; }
 

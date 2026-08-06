@@ -10,7 +10,7 @@ namespace Intellimap.Core.Modules.Standard.GitHub
     {
         public ProfileKnowledge ProfileKnowledge { get; set; } = null!;
 
-        public override IReadOnlyList<IKnowledge> Knowledge => [
+        public override IReadOnlyList<AbstractKnowledge> Knowledge => [
             ProfileKnowledge
         ];
     }

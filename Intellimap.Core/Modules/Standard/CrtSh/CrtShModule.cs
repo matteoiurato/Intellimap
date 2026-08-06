@@ -50,10 +50,13 @@ namespace Intellimap.Core.Modules.Standard.CrtSh
 
             entries ??= [];
 
+            var relatedDomains = ExtractRelatedDomains(entries);
+
             var domainKnowledge = new DomainKnowledge
             {
                 Hostname = hostnameTarget.Hostname,
-                RelatedDomains = ExtractRelatedDomains(entries)
+                Found = relatedDomains.Count > 0,
+                RelatedDomains = relatedDomains
             };
 
             var result = CreateResult();

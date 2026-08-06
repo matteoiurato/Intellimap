@@ -53,7 +53,17 @@ namespace Intellimap.Core.Modules.Standard.IpApi
                 throw new ModuleExecutionException(ModuleId, "No response from service");
 
             if (response.Status != "success")
-                throw new ModuleExecutionException(ModuleId, $"Error response from service");
+            {
+                var notFoundKnowledge = new IpAddressKnowledge
+                {
+                    IpAddress = ipTarget.Address.ToString(),
+                    Found = false
+                };
+
+                var notFoundResult = CreateResult();
+                notFoundResult.IpAddressKnowledge = notFoundKnowledge;
+                return notFoundResult;
+            }
 
             var ipAddressKnowledge = new IpAddressKnowledge
             {

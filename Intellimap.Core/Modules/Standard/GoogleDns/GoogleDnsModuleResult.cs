@@ -10,7 +10,7 @@ namespace Intellimap.Core.Modules.Standard.GoogleDns
     {
         public DnsKnowledge DnsKnowledge { get; set; } = null!;
 
-        public override IReadOnlyList<IKnowledge> Knowledge => [
+        public override IReadOnlyList<AbstractKnowledge> Knowledge => [
             DnsKnowledge
         ];
     }

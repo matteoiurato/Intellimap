@@ -10,7 +10,7 @@ namespace Intellimap.Core.Modules.Standard.IpApi
     {
         public IpAddressKnowledge IpAddressKnowledge { get; set; } = null!;
 
-        public override IReadOnlyList<IKnowledge> Knowledge => [
+        public override IReadOnlyList<AbstractKnowledge> Knowledge => [
             IpAddressKnowledge
         ];
     }

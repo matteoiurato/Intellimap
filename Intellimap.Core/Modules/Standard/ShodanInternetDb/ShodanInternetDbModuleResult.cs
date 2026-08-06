@@ -10,7 +10,7 @@ namespace Intellimap.Core.Modules.Standard.ShodanInternetDb
     {
         public ExposureKnowledge ExposureKnowledge { get; set; } = null!;
 
-        public override IReadOnlyList<IKnowledge> Knowledge => [
+        public override IReadOnlyList<AbstractKnowledge> Knowledge => [
             ExposureKnowledge
         ];
     }

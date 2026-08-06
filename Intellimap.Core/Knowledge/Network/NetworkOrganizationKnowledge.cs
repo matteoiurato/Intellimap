@@ -3,7 +3,7 @@
     /// <summary>
     /// Knowledge describing the network owner of an IP address.
     /// </summary>
-    public class NetworkOrganizationKnowledge : IKnowledge
+    public class NetworkOrganizationKnowledge : AbstractKnowledge
     {
         public string? Name { get; set; }
 

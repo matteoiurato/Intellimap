@@ -59,7 +59,7 @@ namespace Intellimap.Core.Modules.Standard.GitHub
                 using var httpResponse = await client.SendAsync(request, cancellationToken);
 
                 if (httpResponse.StatusCode == HttpStatusCode.NotFound)
-                    return new ProfileKnowledge { Username = username };
+                    return new ProfileKnowledge { Username = username, Found = false };
 
                 httpResponse.EnsureSuccessStatusCode();
 
