@@ -32,12 +32,8 @@ namespace Intellimap.Core.Infrastructure.Http
             if (options is null || string.IsNullOrWhiteSpace(options.ProxyAddress))
                 return default;
 
-            return new HttpClientKey(Normalize(options.ProxyAddress));
-        }
-
-        private static string Normalize(string address)
-        {
-            return address.Trim().TrimEnd('/').ToLowerInvariant();
+            var normalizedProxyAddress = options.ProxyAddress.Trim().TrimEnd('/').ToLowerInvariant();
+            return new HttpClientKey(normalizedProxyAddress);
         }
 
         /// <summary>
