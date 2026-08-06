@@ -11,7 +11,7 @@ Modules don't just return whatever an external source gives back - they translat
 
 ## How it works
 
-Intelligence gathering in Intellimap revolves around three ideas:
+Intelligence gathering in Intellimap revolves around four ideas:
 
 - **Targets** - the thing being investigated, e.g. a hostname or an IP address.
 - **Modules** - units of work that query an external data source for a given target and return structured knowledge.

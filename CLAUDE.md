@@ -11,8 +11,6 @@ Modules are intentionally uniform: no constructor injection, no DI container, no
 Configuration flows only through options objects.
 If a need feels important enough to break that uniformity, it belongs in Core, not in a one-off module.
 
----
-
 ## Intellimap.Core
 
 Core is the framework's foundation:
