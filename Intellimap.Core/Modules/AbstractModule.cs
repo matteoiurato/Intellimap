@@ -23,6 +23,13 @@ namespace Intellimap.Core.Modules
         /// The knowledge types this module can produce.
         /// </summary>
         public abstract IReadOnlyCollection<Type> ProducedKnowledgeTypes { get; }
+
+        /// <summary>
+        /// Executes the module for callers that only hold a generic <see cref="AbstractModule"/> reference
+        /// (e.g. modules discovered via ModuleManager). Callers who already know the concrete module type
+        /// should prefer the typed <c>ExecuteAsync</c> on <see cref="AbstractModule{TResult}"/> instead.
+        /// </summary>
+        public abstract Task<AbstractModuleResult> ExecuteUntypedAsync(ModuleExecutionContext context);
     }
 
     /// <summary>
@@ -65,6 +72,13 @@ namespace Intellimap.Core.Modules
 
             return await ExecuteCoreAsync(context, cts.Token);
         }
+
+        /// <summary>
+        /// Executes the module for callers that only hold a generic <see cref="AbstractModule"/> reference
+        /// (e.g. modules discovered via ModuleManager).
+        /// </summary>
+        public override async Task<AbstractModuleResult> ExecuteUntypedAsync(ModuleExecutionContext context)
+            => await ExecuteAsync(context);
 
         /// <summary>
         /// Implements the module's execution logic.
